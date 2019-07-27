@@ -13,8 +13,24 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
 
   var database = firebase.database();
+  var title = 'Anytime is Train Time';
+  var lead = 'Choo Choo. Chee Chee.';
 
-    
+  $(document).ready(function(){
+    $('.display-4').append(title);
+    $('.lead').append(lead);
+  });
+
+  $('.submit').on('click', function(){
+    database.ref().push({
+        train: $('#trainname').val().trim(),
+        destination: $('#destination').val().trim(),
+        time: $('#time').val().trim(),
+        frequency: $('#frequency').val().trim(),
+    });
+
+  });
+  /*  
     $(document).ready(function () {
 
         var mTest = moment().format("DD/MM/YY hh:mm A");
@@ -35,4 +51,4 @@ const firebaseConfig = {
 
         });
     });
-
+*/
