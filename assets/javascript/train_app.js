@@ -15,10 +15,12 @@ const firebaseConfig = {
   var database = firebase.database();
   var title = 'Anytime is Train Time';
   var lead = 'Choo Choo. Chee Chee.';
+  var formtitle = 'Add Train'
 
   $(document).ready(function(){
     $('.display-4').append(title);
     $('.lead').append(lead);
+    $('#formtitle').append(formtitle);
   });
 
   $('.submit').on('click', function(){
