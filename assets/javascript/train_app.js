@@ -17,13 +17,22 @@ const firebaseConfig = {
   var lead = 'Choo Choo. Chee Chee.';
   var formTitle = 'Add Train';
   var scheduleTitle = 'Current Train Schedule';
-
+  var trainH = 'Train Name';
+  var destinationH = 'Destination';
+  var frequencyH = 'Frequency (min)';
+  var nextH = 'Next Arrival';
+  var minH = 'Minutes Away';
 
   $(document).ready(function(){
     $('.display-4').append(title);
     $('.lead').append(lead);
     $('#formtitle').append(formTitle);
-    $('#scheudletitle').append(scheduleTitle);
+    $('#scheduletitle').append(scheduleTitle);
+    $('#trainH').append(trainH);
+    $('#destinationH').append(destinationH);
+    $('#frequencyH').append(frequencyH);
+    $('#nextH').append(nextH);
+    $('#minH').append(minH);
   });
 
   $('.submit').on('click', function(){
@@ -34,6 +43,19 @@ const firebaseConfig = {
         frequency: $('#frequency').val().trim(),
     });
 
+  });
+
+  database.ref().on("child_added", function(snapshot) {
+    var newPost = snapshot.val();
+    var body = $("#schedule-table");
+    var row = $("<tr>").appendTo(body);
+
+    row.append(`<td>${newPost.train}</td>`)
+    row.append(`<td>${newPost.destination}</td>`)
+    row.append(`<td>${newPost.frequency}</td>`)
+
+    console.log(newPost);
+    
   });
   /*  
     $(document).ready(function () {
