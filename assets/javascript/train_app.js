@@ -66,16 +66,4 @@ const firebaseConfig = {
     row.append(`<td>${newPost.frequency}</td>`)
     row.append(`<td>`+ nextArriveDisp + `</td>`)
     row.append(`<td>`+ minAway + `</td>`)
-
-    //console.log(firstTime);
-    //console.log(now);
-    //console.log(minDiff);
-    //console.log(timeMod);
-    //console.log(minAway);
-    //console.log(currTimeFmt);
-    //console.log(moment(nextArrive).format('hh:mm A'));
-    //console.log(firstTime._i + ' TYPE: '+ typeof firstTime._i);
-    //console.log(newPost);
-    //console.log(now);
-    //console.log(parsedFrequency);
   });
